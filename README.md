@@ -2,5 +2,5 @@
 Website Redesign 2020
 
 ## Mockup
-![alt text](layout.png "Mockup")
+![alt text](Mockup.png "Mockup")
 
