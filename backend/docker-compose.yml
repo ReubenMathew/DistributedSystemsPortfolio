@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  scheduler:
+    build: ./scheduler
+    image: schedule-image
+    depends_on:
+      - redis
+      - web
   web:
     build: ./app
     image: master-image
