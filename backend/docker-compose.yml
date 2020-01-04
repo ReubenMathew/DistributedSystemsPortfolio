@@ -14,12 +14,12 @@ services:
       - redis
     command: rqworker --name worker --url redis://redis:6379/0
 
-# uncomment to have a another worker
-#  worker2:
+#  (Scalable Workers)
+#  workerN:
 #    image: master-image
 #    depends_on:
 #      - redis
-#    command: rqworker --name worker2 --url redis://redis:6379/0
+#    command: rqworker --name workerN --url redis://redis:6379/0
 
   dashboard:
     image: master-image
@@ -31,5 +31,8 @@ services:
 
   redis:
     image: redis
-    expose:
-      - "6379"
+    ports:
+      - '6379:6379'
+
+volumes:
+  redis:

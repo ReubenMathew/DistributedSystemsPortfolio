@@ -7,7 +7,7 @@ import simplejson
 import json
 # (production)
 import redis
-r = redis.Redis(host='192.168.99.100', port=6379, db=0)
+r = redis.Redis(host='redis', port=6379, db=0)
 
 rq = RQ()
 rq.redis_url = 'redis://redis:6379/0'
@@ -47,7 +47,10 @@ def callSpotify():
     artist = peep['artists'][-1]['name']
 
     prev = r.get('curr')
-    r.set('previous',prev)
+    if prev == None:
+        r.set('previous','null')    
+    else:
+        r.set('previous',prev)
     curr = f'{trackName} by {artist}'
     r.set('curr',curr)
 
