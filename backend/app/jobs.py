@@ -5,12 +5,25 @@ import random
 import easydbio
 import simplejson
 import json
+
 # (production)
 import redis
 r = redis.Redis(host='redis', port=6379, db=0)
 
 rq = RQ()
 rq.redis_url = 'redis://redis:6379/0'
+
+# from rq_scheduler import Scheduler
+# from datetime import datetime
+# scheduler = Scheduler(connection=Redis())
+
+# scheduler.schedule(
+#     scheduled_time=datetime.utcnow(), # Time for first execution, in UTC timezone
+#     func=callSpotify,                     # Function to be queued
+#     interval=60,                   # Time before the function is called again, in seconds
+#     repeat=None,                     # Repeat this number of times (None means repeat forever
+# )
+
 
 # (development only) insert easydbio creds and instantiate object...
 

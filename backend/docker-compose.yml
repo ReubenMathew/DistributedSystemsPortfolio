@@ -1,18 +1,18 @@
 version: '3'
 
 services:
-  scheduler:
-    build: ./scheduler
-    image: schedule-image
-    depends_on:
-      - redis
-      - web
   web:
     build: ./app
     image: master-image
     ports:
       - 5000:5000
     command: /usr/local/bin/gunicorn -b :5000 main:app
+    
+  scheduler:
+    image: master-image
+    depends_on:
+      - redis
+    command: rqscheduler --host redis --port 6379 --db 0
 
   worker:
     image: master-image
