@@ -27,9 +27,6 @@ def index():
 
     return render_template('index.html', joblist=l)
 
-def scheduledEnqueue():
-    job = jobs.callSpotify.queue()
-    joblist.append(job)
 
 @app.route('/enqueuejob', methods=['GET', 'POST'])
 def enqueuejob():

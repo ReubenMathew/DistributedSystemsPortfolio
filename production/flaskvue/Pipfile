@@ -4,12 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-requests = "*"
-rq = "*"
-redis = "*"
 
 [packages]
-easydbio = "*"
+requests = "==2.22.0"
+redis = "==3.3.11"
+Flask-Cors = "==3.0.8"
+flask = "*"
 
 [requires]
 python_version = "3.8"
