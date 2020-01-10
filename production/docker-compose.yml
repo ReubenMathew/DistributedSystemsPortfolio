@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+
+  # Non prod, w/o gunicorn
+  # web:
+  #   container_name: web
+  #   environment:
+  #     - FLASK_APP=main.py
+  #     - FLASK_DEBUG=1
+  #   volumes:
+  #     - ./app:/app
+  #   command: flask run --host=0.0.0.0
+
   web:
     build: ./app
     image: master-image

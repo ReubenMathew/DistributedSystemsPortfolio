@@ -2,7 +2,6 @@ from flask_rq2 import RQ
 from rq import get_current_job
 import requests
 import random
-import easydbio
 import simplejson
 import json
 
