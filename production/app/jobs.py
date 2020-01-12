@@ -4,6 +4,7 @@ import requests
 import random
 import simplejson
 import json
+import time
 
 # (production)
 import redis
@@ -78,5 +79,5 @@ def callSpotify():
     self_job.meta['progress'] = {'num_iterations': 1, 'iteration': 1, 'percent': 100}
     # save meta information to queue
     self_job.save_meta()
-
+    time.sleep(3)
     return curr

@@ -18,7 +18,7 @@ export default {
 			this.track = this.getTrackFromBackend()
 		},
 		getTrackFromBackend() {
-		    const path = `http://localhost:5000/api/spotify`
+		    const path = `http://0.0.0.0:8000/api/spotify`
 		    axios.get(path)
 		    .then(response => {
 		    	this.track = response.data.curr

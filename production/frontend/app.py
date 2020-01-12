@@ -1,18 +1,17 @@
 from flask import Flask, render_template, jsonify
-from flask_cors import CORS 
+from flask_cors import CORS, cross_origin
 import requests
 import redis
 
 app = Flask(__name__,
-			static_folder = './../dist/static',
-			template_folder = './../dist')
+			static_folder = './dist/static',
+			template_folder = './dist')
 cors = CORS(app, resources={r'/api/*': {'origins':'*'}})
 
-app.config.from_object('config')
-
-r = redis.Redis(host='192.168.99.100', port=6379, db=0)
+r = redis.Redis(host='redis', port=6379, db=0)
 
 @app.route('/api/spotify')
+@cross_origin()
 def db_call():
 	api = {}
 	# for x in r.keys():
@@ -25,5 +24,6 @@ def db_call():
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
+@cross_origin()
 def catch_all(path):
     return render_template("index.html")
