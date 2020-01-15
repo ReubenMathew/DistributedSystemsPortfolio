@@ -16,7 +16,9 @@ services:
     build: ./frontend
     image: frontend-image
     ports:
-      - 8000:8000
+      - '8000:8000'
+    expose:
+      - '8000'
     command: /usr/local/bin/gunicorn -b :8000 app:app
     
 

@@ -26,6 +26,8 @@ Flask-RQ2 = "==18.3"
 Jinja2 = "==2.10.1"
 MarkupSafe = "==1.1.1"
 Werkzeug = "==0.15.4"
+github = "*"
+pygithub = "*"
 
 [requires]
 python_version = "3.8"

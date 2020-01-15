@@ -5,3 +5,5 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 RUN apt-get update
+
+EXPOSE 8000

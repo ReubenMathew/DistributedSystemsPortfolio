@@ -11,7 +11,7 @@ cors = CORS(app, resources={r'/api/*': {'origins':'*'}})
 r = redis.Redis(host='redis', port=6379, db=0)
 
 @app.route('/api/spotify')
-@cross_origin()
+@cross_origin(origin='*',headers=['Content-Type'])
 def db_call():
 	api = {}
 	# for x in r.keys():
