@@ -5,4 +5,4 @@ Website Redesign 2020
 ![alt text](Mockup.png "Mockup")
 
 notes:
-```docker-machine env``` for finding address of docker containers 
+```docker-machine env``` for finding local address of docker containers 
