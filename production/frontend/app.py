@@ -14,16 +14,16 @@ r = redis.Redis(host='redis', port=6379, db=0)
 @cross_origin(origin='*',headers=['Content-Type'])
 def db_call():
 	api = {}
-	# for x in r.keys():
-	# 	if x[0:2] != b'rq':
-	# 		api[x[1:]] == r.get(str(x[1:]))
-	api['curr'] = r.get('curr').decode("utf-8")
+	if len(api) == 0:
+		api['curr'] = 'NULL'
+	else:
+		api['curr'] = r.get('curr').decode("utf-8")
 	# api['prev'] = r.get('prev').decode("utf-8")
 	
 	return jsonify(api)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
-@cross_origin()
+@cross_origin(origin='*',headers=['Content-Type'])
 def catch_all(path):
     return render_template("index.html")
