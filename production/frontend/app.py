@@ -14,10 +14,12 @@ r = redis.Redis(host='redis', port=6379, db=0)
 @cross_origin(origin='*',headers=['Content-Type'])
 def db_call():
 	api = {}
-	if len(api) == 0:
-		api['curr'] = 'NULL'
-	else:
+	try:
+		r.get('curr')
 		api['curr'] = r.get('curr').decode("utf-8")
+	except redis.exceptions.ConnectionError:
+		api['curr'] = 'NULL'
+
 	# api['prev'] = r.get('prev').decode("utf-8")
 	
 	return jsonify(api)
