@@ -11,7 +11,15 @@ services:
   #   volumes:
   #     - ./app:/app
   #   command: flask run --host=0.0.0.0
-  
+  # nuxt:
+  #   build: ./nuxt/frontend
+  #   container_name: nuxt-frontend
+  #   restart: always
+  #   ports:
+  #     - "3333:3333"
+  #   command:
+  #     "npm run start"
+
   frontend:
     build: ./frontend
     image: frontend-image

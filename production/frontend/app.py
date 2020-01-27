@@ -7,6 +7,8 @@ app = Flask(__name__,
 			static_folder = './dist/static',
 			template_folder = './dist')
 cors = CORS(app, resources={r'/api/*': {'origins':'*'}})
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 r = redis.Redis(host='redis', port=6379, db=0)
 

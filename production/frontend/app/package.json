@@ -4,6 +4,7 @@
   "description": "My website prototype",
   "author": "Reuben Ninan (reubenninan@outlook.com)",
   "private": true,
+  "proxy": "http://localhost",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
