@@ -18,11 +18,13 @@ export default {
 			this.track = this.getTrackFromBackend()
 		},
 		getTrackFromBackend() {
-		    axios.get('http://192.168.99.100:8000/api/spotify')
+		    axios.get('http://localhost:8000/api/spotify')
 		    .then(response => {
 		    	this.track = response.data.curr
+		    	console.log(response);
 		    })
 		    .catch(error => {
+		    	console.log(response);
 		    	console.log(error)
 		    })
 	  	}
