@@ -31,7 +31,7 @@ services:
     
 
   web:
-    build: ./app
+    build: ./backend
     image: master-image
     ports:
       - 5000:5000
