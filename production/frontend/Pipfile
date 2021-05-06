@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 requests = "==2.22.0"
 redis = "==3.3.11"
-Flask-Cors = "==3.0.8"
+Flask-Cors = "==3.0.9"
 flask = "*"
 
 [requires]
